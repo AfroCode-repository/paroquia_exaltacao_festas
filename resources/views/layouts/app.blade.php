@@ -1,36 +1,80 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<html lang="pt">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Sistema para controle Sys clean">
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <title> @if (isset($title_page)){{$title_page}} | @endif</title>
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            @include('layouts.navigation')
+	<link rel="shortcut icon" href="{{ asset('img/allima-logo.svg') }}">
 
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white dark:bg-gray-800 shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
+    {{--<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">--}}
+    <link rel="stylesheet" href="{{ asset('css/font.css') }}">
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+	<link class="js-stylesheet" href="{{ asset('css/light.css') }}" rel="stylesheet">
+	{{--<link class="js-stylesheet" href="{{ asset('css/plugins/loading.min.css') }}" rel="stylesheet">--}}
+	<link class="js-stylesheet" href="{{ asset('css/plugins/sweetalert2.min.css') }}" rel="stylesheet">
+	{{--<link class="js-stylesheet" href="{{ asset('css/plugins/datepicker.min.css') }}" rel="stylesheet">--}}
+	<link class="js-stylesheet" href="{{ asset('css/plugins/bootstrap-datepicker.min.css') }}" rel="stylesheet">
+	<link class="js-stylesheet" href="{{ asset('storage/css/sysApp.css') }}?v={{ Storage::lastModified('public/css/sysApp.css') }}" rel="stylesheet">
+	{{--<link class="js-stylesheet" href="{{ asset('fontawesome.all.min.css') }}" rel="stylesheet">--}}
+
+    @yield('CssPersonalizado')
+
+</head>
+
+<body data-theme="default" data-layout="fluid" data-sidebar-position="left" data-sidebar-behavior="sticky">
+	<div class="wrapper">
+
+		@include('layouts.sidebar')
+
+		<div class="main">
+            @include('layouts.navibar')
+
+            <main class="content">
+                <div class="container-fluid p-0">
+                    @yield('main')
+                </div>
+			</main>
+
+			<footer class="footer">
+				<div class="container-fluid">
+					<div class="row text-muted">
+						<div class="col-6 text-end">
+							<p class="mb-0">
+								&copy; <?=date("Y")?> - AfroCode
+							</p>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</div>
+    <script>
+        const base_URL = `{{env('APP_URL')}}`
+    </script>
+	<script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/plugins/blockUI.js') }}"></script>
+    <script src="{{ asset('js/plugins/sweetalert2.all.min.js') }}"></script>
+    <script src="{{ asset('js/plugins/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ asset('js/plugins/mask.min.js') }}"></script>
+    <script src="{{ asset('js/plugins/inputmask.min.js') }}"></script>
+    <script src="{{ asset('js/plugins/clipboard.min.js') }}"></script>
+    <script src="{{ asset('storage/js/sysApp.js') }}?v={{ Storage::lastModified('public/js/sysApp.js') }}"></script>
+
+    <div class="modal fade" id="modalesquisaCliente" tabindex="-1" role="dialog" aria-hidden="true" data-target="#modalesquisaCliente">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div id="HtmlPesquisaCliente">
+                </div>
+            </div>
         </div>
-    </body>
+    </div>
+    @yield('JsPersonalizado')
+
+</body>
+
 </html>
