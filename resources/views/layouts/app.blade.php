@@ -5,11 +5,11 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="Sistema para controle Sys clean">
+	<meta name="description" content="Paróquia Exaltação da Santa Cruz">
 
-    <title> @if (isset($title_page)){{$title_page}} | @endif</title>
+    <title> {{$title_page}} | 157º Festa do divino.</title>
 
-	<link rel="shortcut icon" href="{{ asset('img/allima-logo.svg') }}">
+	<link rel="shortcut icon" href="{{ asset('img/logo.png') }}">
 
     {{--<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">--}}
     <link rel="stylesheet" href="{{ asset('css/font.css') }}">
@@ -65,14 +65,6 @@
     <script src="{{ asset('js/plugins/clipboard.min.js') }}"></script>
     <script src="{{ asset('storage/js/sysApp.js') }}?v={{ Storage::lastModified('public/js/sysApp.js') }}"></script>
 
-    <div class="modal fade" id="modalesquisaCliente" tabindex="-1" role="dialog" aria-hidden="true" data-target="#modalesquisaCliente">
-        <div class="modal-dialog modal-sm" role="document">
-            <div class="modal-content">
-                <div id="HtmlPesquisaCliente">
-                </div>
-            </div>
-        </div>
-    </div>
     @yield('JsPersonalizado')
 
 </body>

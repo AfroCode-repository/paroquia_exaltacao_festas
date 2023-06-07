@@ -1,8 +1,8 @@
 <nav id="sidebar" class="sidebar">
     <div class="sidebar-content js-simplebar">
         <a class="sidebar-brand" href="{{ route("dashboard") }}">
-            <img src="{{ asset('img/allima-logo.svg') }}" alt="SysClean" width="30" height="30" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve" />
-            <span class="align-middle me-3">Sys Clean</span>
+            <img src="{{ asset('img/logo.png') }}" alt="SysClean" width="30" height="30" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve" />
+            <span class="align-middle me-3"></span>
         </a>
 
         <ul class="sidebar-nav">
@@ -21,12 +21,12 @@
 
             <li class="sidebar-item">
                 <a data-bs-target="#sideBarInvoice" data-bs-toggle="collapse" class="sidebar-link collapsed">
-                    <i class="fas fa-hand-holding-usd"></i> <span class="align-middle"> Invoices</span>
+                    <i class="fas fa-hand-holding-usd"></i> <span class="align-middle"> Estoque</span>
                 </a>
                 <ul id="sideBarInvoice" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                     <li class="sidebar-item @if ('listInvoices' == $active) active @endif">
                         <a class="sidebar-link next" href="">
-                            <i class="fas fa-money-check"></i> Listar Invoice
+                            <i class="fas fa-money-check"></i> Nova Requisição
                         </a>
                     </li>
                 </ul>
