@@ -21,8 +21,6 @@ return new class extends Migration
             $table->timestamps();
             $table->tinyInteger('status')->default(1);
 
-            $table->index('id_tipo_produto');
-
             $table->foreign('id_tipo_produto')->references('id')->on('tipo_produtos');
 
 

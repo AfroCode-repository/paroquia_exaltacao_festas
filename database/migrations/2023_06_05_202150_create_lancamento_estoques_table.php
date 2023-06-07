@@ -15,17 +15,15 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_produto_estoque');
             $table->unsignedBigInteger('id_setor');
-            $table->unsignedBigInteger('id_tipo_lancamento_estoque');
+            $table->unsignedBigInteger('id_tipo_lancamento')->comment('id_tipo_lancamento_estoque');
             $table->integer('qtd');
             $table->text('obs')->nullable();
             $table->timestamps();
             $table->tinyInteger('status')->default(1);
 
-            $table->index(['id_produto_estoque', 'id_setor', 'id_tipo_lancamento_estoque']);
-
             $table->foreign('id_produto_estoque')->references('id')->on('produto_estoque');
-            $table->foreign('id_setor')->references('id')->on('setor');
-            $table->foreign('id_tipo_lancamento_estoque')->references('id')->on('tipo_lancamento_estoque');
+            $table->foreign('id_setor')->references('id')->on('setores');
+            $table->foreign('id_tipo_lancamento')->references('id')->on('tipo_lancamento_estoque');
 
         });
     }
